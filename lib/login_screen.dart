@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'register_screen.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -144,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   : TextInputType.emailAddress,
               decoration: InputDecoration(
                 hintText: _usePhone
-                    ? '+225 07 00 00 00'
+                    ? '0712345678'
                     : 'votre@email.com',
                 hintStyle: const TextStyle(color: Color(0xFF8A8A9A)),
                 filled: true,
@@ -156,6 +157,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 prefixIcon: Icon(
                   _usePhone ? Icons.phone_outlined : Icons.email_outlined,
                   color: const Color(0xFF8A8A9A),
+                ),
+                prefixText: _usePhone ? '+225 ' : null,
+                prefixStyle: const TextStyle(
+                  color: Color(0xFF1A1A2E),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
                 ),
               ),
             ),
@@ -209,12 +216,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
             const SizedBox(height: 32),
 
-            // Bouton Se connecter
+            // Bouton Se connecter → vers HomeScreen
             SizedBox(
               width: double.infinity,
               height: 54,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFFF6B35),
                   shape: RoundedRectangleBorder(
@@ -234,16 +248,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
             const SizedBox(height: 16),
 
-            // Pas de compte
+            // Pas de compte → vers RegisterScreen
             GestureDetector(
               onTap: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const RegisterScreen(),
-    ),
-  );
-},
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterScreen(),
+                  ),
+                );
+              },
               child: RichText(
                 text: const TextSpan(
                   text: "Pas de compte ? ",
