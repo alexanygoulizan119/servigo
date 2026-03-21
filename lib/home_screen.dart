@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'providers_list_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,7 +25,6 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Top bar
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -132,42 +132,78 @@ class HomeScreen extends StatelessWidget {
                     crossAxisSpacing: 12,
                     mainAxisSpacing: 12,
                     childAspectRatio: 1.4,
-                    children: const [
-                      _CategoryCard(
-                        icon: '🏠',
-                        label: 'Maison & Travaux',
-                        count: '142 prestataires',
-                        color: Color(0xFFFF6B35),
+                    children: [
+                      GestureDetector(
+                        onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                            const ProvidersListScreen(
+                              category: 'Maison & Travaux'))),
+                        child: const _CategoryCard(
+                          icon: '🏠',
+                          label: 'Maison & Travaux',
+                          count: '142 prestataires',
+                          color: Color(0xFFFF6B35),
+                        ),
                       ),
-                      _CategoryCard(
-                        icon: '🔧',
-                        label: 'Réparation Électronique',
-                        count: '89 prestataires',
-                        color: Color(0xFF2EC4B6),
+                      GestureDetector(
+                        onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                            const ProvidersListScreen(
+                              category: 'Réparation Électronique'))),
+                        child: const _CategoryCard(
+                          icon: '🔧',
+                          label: 'Réparation Électronique',
+                          count: '89 prestataires',
+                          color: Color(0xFF2EC4B6),
+                        ),
                       ),
-                      _CategoryCard(
-                        icon: '💄',
-                        label: 'Beauté & Bien-être',
-                        count: '113 prestataires',
-                        color: Color(0xFFFF6B35),
+                      GestureDetector(
+                        onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                            const ProvidersListScreen(
+                              category: 'Beauté & Bien-être'))),
+                        child: const _CategoryCard(
+                          icon: '💄',
+                          label: 'Beauté & Bien-être',
+                          count: '113 prestataires',
+                          color: Color(0xFFFF6B35),
+                        ),
                       ),
-                      _CategoryCard(
-                        icon: '🧹',
-                        label: 'Nettoyage',
-                        count: '54 prestataires',
-                        color: Color(0xFF2EC4B6),
+                      GestureDetector(
+                        onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                            const ProvidersListScreen(
+                              category: 'Nettoyage'))),
+                        child: const _CategoryCard(
+                          icon: '🧹',
+                          label: 'Nettoyage',
+                          count: '54 prestataires',
+                          color: Color(0xFF2EC4B6),
+                        ),
                       ),
-                      _CategoryCard(
-                        icon: '🎉',
-                        label: 'Événementiel',
-                        count: '38 prestataires',
-                        color: Color(0xFF1A1A2E),
+                      GestureDetector(
+                        onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                            const ProvidersListScreen(
+                              category: 'Événementiel'))),
+                        child: const _CategoryCard(
+                          icon: '🎉',
+                          label: 'Événementiel',
+                          count: '38 prestataires',
+                          color: Color(0xFF1A1A2E),
+                        ),
                       ),
-                      _CategoryCard(
-                        icon: '💼',
-                        label: 'Services Pro',
-                        count: '71 prestataires',
-                        color: Color(0xFFFF6B35),
+                      GestureDetector(
+                        onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>
+                            const ProvidersListScreen(
+                              category: 'Services Pro'))),
+                        child: const _CategoryCard(
+                          icon: '💼',
+                          label: 'Services Pro',
+                          count: '71 prestataires',
+                          color: Color(0xFFFF6B35),
+                        ),
                       ),
                     ],
                   ),
@@ -185,7 +221,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 14),
 
-                  // Prestataires
                   _ProviderCard(
                     avatar: '👨🏾‍🔧',
                     name: 'Kouassi Jean',
@@ -374,7 +409,6 @@ class _ProviderCard extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       child: Row(
         children: [
-          // Avatar
           Container(
             width: 62,
             height: 62,
@@ -387,7 +421,6 @@ class _ProviderCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 14),
-          // Infos
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
