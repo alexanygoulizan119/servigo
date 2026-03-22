@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'service_request_screen.dart';
 
 class ProviderProfileScreen extends StatelessWidget {
   final Map<String, dynamic> provider;
@@ -331,7 +332,7 @@ class ProviderProfileScreen extends StatelessWidget {
         ),
       ),
 
-      // Bouton Demander un service
+      // Bouton Demander un service → relié au formulaire
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -349,11 +350,12 @@ class ProviderProfileScreen extends StatelessWidget {
           height: 54,
           child: ElevatedButton(
             onPressed: () {
-              // On connectera le formulaire à l'étape 7
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Formulaire bientôt disponible !'),
-                  backgroundColor: Color(0xFFFF6B35),
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ServiceRequestScreen(
+                    provider: p,
+                  ),
                 ),
               );
             },
