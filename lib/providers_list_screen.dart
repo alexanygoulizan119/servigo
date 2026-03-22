@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'provider_profile_screen.dart';
 
 class ProvidersListScreen extends StatefulWidget {
   final String category;
@@ -409,7 +410,16 @@ class _ProviderCard extends StatelessWidget {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProviderProfileScreen(
+                              provider: p,
+                            ),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFFF6B35),
                         shape: RoundedRectangleBorder(
