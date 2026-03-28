@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'providers_list_screen.dart';
-
+import 'subcategory_screen.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -136,8 +136,10 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) =>
-                            const ProvidersListScreen(
-                              category: 'Maison & Travaux'))),
+                             SubcategoryScreen(
+        category: 'Maison & Travaux',
+        categoryIcon: '🏠',
+      ))),
                         child: const _CategoryCard(
                           icon: '🏠',
                           label: 'Maison & Travaux',
@@ -148,8 +150,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) =>
-                            const ProvidersListScreen(
-                              category: 'Réparation Électronique'))),
+                             SubcategoryScreen(category: 'Réparation Électronique', categoryIcon: '🔧'))),
                         child: const _CategoryCard(
                           icon: '🔧',
                           label: 'Réparation Électronique',
@@ -160,8 +161,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) =>
-                            const ProvidersListScreen(
-                              category: 'Beauté & Bien-être'))),
+                            SubcategoryScreen(category: 'Beauté & Bien-être', categoryIcon: '💄'))),
                         child: const _CategoryCard(
                           icon: '💄',
                           label: 'Beauté & Bien-être',
@@ -172,8 +172,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) =>
-                            const ProvidersListScreen(
-                              category: 'Nettoyage'))),
+                              SubcategoryScreen(category: 'Nettoyage', categoryIcon: '🧹'))),
                         child: const _CategoryCard(
                           icon: '🧹',
                           label: 'Nettoyage',
@@ -184,8 +183,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) =>
-                            const ProvidersListScreen(
-                              category: 'Événementiel'))),
+                             SubcategoryScreen(category: 'Événementiel', categoryIcon: '🎉'))),
                         child: const _CategoryCard(
                           icon: '🎉',
                           label: 'Événementiel',
@@ -196,8 +194,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) =>
-                            const ProvidersListScreen(
-                              category: 'Services Pro'))),
+                            SubcategoryScreen(category: 'Services Pro', categoryIcon: '💼'))),
                         child: const _CategoryCard(
                           icon: '💼',
                           label: 'Services Pro',

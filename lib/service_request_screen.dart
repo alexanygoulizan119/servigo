@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'chat_screen.dart';
 
 class ServiceRequestScreen extends StatefulWidget {
   final Map<String, dynamic> provider;
@@ -204,7 +205,7 @@ class _ServiceRequestScreenState extends State<ServiceRequestScreen> {
                     },
                     decoration: InputDecoration(
                       hintText:
-                          'Décrivez votre problème en détail...\nEx: Mon robinet fuit depuis 2 jours, l\'eau coule sous l\'évier.',
+                          'Décrivez votre problème en détail...\nEx: Mon robinet fuit depuis 2 jours.',
                       hintStyle: const TextStyle(
                         color: Color(0xFF8A8A9A),
                         fontSize: 14,
@@ -390,7 +391,7 @@ class _ServiceRequestScreenState extends State<ServiceRequestScreen> {
         ],
       ),
 
-      // Bouton Envoyer
+      // Bouton Envoyer → vers Chat
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -417,12 +418,18 @@ class _ServiceRequestScreenState extends State<ServiceRequestScreen> {
                         content: Text(
                             '✅ Demande envoyée ! En attente du devis...'),
                         backgroundColor: Color(0xFF2EC4B6),
-                        duration: Duration(seconds: 3),
+                        duration: Duration(seconds: 2),
                       ),
                     );
                     Future.delayed(const Duration(seconds: 2), () {
-                      Navigator.pop(context);
-                      Navigator.pop(context);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChatScreen(
+                            provider: widget.provider,
+                          ),
+                        ),
+                      );
                     });
                   },
             style: ElevatedButton.styleFrom(
